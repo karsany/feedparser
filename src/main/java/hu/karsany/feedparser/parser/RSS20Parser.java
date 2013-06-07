@@ -60,8 +60,6 @@ public class RSS20Parser implements ParserInterface {
             String nodeValue = childNodes.item(i).getTextContent();
             NodeList itemChilds = childNodes.item(i).getChildNodes();
 
-            //System.out.println(nodeName + " == " + nodeValue);
-
             if (nodeName.equals("title")) {
                 feed.setTitle(nodeValue);
             }

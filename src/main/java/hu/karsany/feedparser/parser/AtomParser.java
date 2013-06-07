@@ -2,20 +2,12 @@ package hu.karsany.feedparser.parser;
 
 import hu.karsany.feedparser.bean.Feed;
 import hu.karsany.feedparser.bean.FeedItem;
-import hu.karsany.feedparser.parser.ParserInterface;
 import hu.karsany.feedparser.util.FeedDateUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 
 import java.util.ArrayList;
 
-/**
- * Created with IntelliJ IDEA.
- * User: fkarsany
- * Date: 2013.06.07.
- * Time: 21:20
- * To change this template use File | Settings | File Templates.
- */
 public class AtomParser implements ParserInterface {
 
     private Document document;

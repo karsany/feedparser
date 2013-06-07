@@ -50,7 +50,7 @@ public final class FeedDateUtils {
 
                 parseDate = DateUtils.parseDate(transfmdDate, new String[]{"yyyy-MM-dd'T'HH:mm:ssz", "yyyy-MM-dd'T'HH:mm:ss.SSz"});
             } catch (DateParseException e) {
-                throw new RuntimeException("FeedDateUtils: Error converting date: " + date);
+                throw new RuntimeException("FeedDateUtils: Error converting date: " + date, e);
             }
         }
         return parseDate;
