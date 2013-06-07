@@ -3,6 +3,26 @@ feedparser
 
 Feedparser is a Java library that parses Atom and RSS feeds.
 
+Installation
+------------
+
+Prerequisites: Java JDK 1.6, Apache Maven 3
+
+After downloading the product, you can build and install it via:
+
+			mvn install
+			
+			
+If you want to use it in your software product you can add it
+maven as dependency:
+
+			<dependency>
+				<groupId>hu.karsany.feedparser</groupId>
+				<artifactId>feedparser</artifactId>
+				<version>1.0-SNAPSHOT</version>
+			</dependency>
+
+
 Usage
 -----
 
