@@ -14,7 +14,7 @@ After downloading the product, you can build and install it via:
 			
 			
 If you want to use it in your software product you can add it
-maven as dependency:
+as maven dependency:
 
 			<dependency>
 				<groupId>hu.karsany.feedparser</groupId>
