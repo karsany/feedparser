@@ -21,13 +21,13 @@ public class FeedTypeTest {
 
     @Test
     public void testRSS20() throws IOException, SAXException, ParserConfigurationException, URISyntaxException {
-        String feedType = FeedUtils.getFeedType(HttpUtils.openXMLDocument("http://upside.blog.hu/rss2"));
+        String feedType = FeedUtils.getFeedType(new HttpUtils("http://upside.blog.hu/rss2").openXMLDocument());
         Assert.assertEquals("RSS2.0", feedType);
     }
 
     @Test
     public void testAtom() throws IOException, SAXException, ParserConfigurationException {
-        String feedType = FeedUtils.getFeedType(HttpUtils.openXMLDocument("http://upside.blog.hu/atom"));
+        String feedType = FeedUtils.getFeedType(new HttpUtils("http://upside.blog.hu/atom").openXMLDocument());
         Assert.assertEquals("ATOM", feedType);
     }
 

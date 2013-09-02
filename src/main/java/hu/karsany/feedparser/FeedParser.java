@@ -20,11 +20,31 @@ import java.net.URL;
  */
 public final class FeedParser {
 
-    private FeedParser() {
+    private String proxyHost;
+    private int proxyPort;
+
+    public FeedParser(String proxyHost, int proxyPort) {
+
+        this.proxyHost = proxyHost;
+        this.proxyPort = proxyPort;
     }
 
-    public static Feed parse(URL url) throws IOException, ParserConfigurationException, SAXException, URISyntaxException, UnknownFeedTypeException {
-        Document document = HttpUtils.openXMLDocument(url.toString());
+    public FeedParser() {
+        proxyHost = null;
+        proxyPort = -1;
+
+    }
+
+    public Feed parse(URL url) throws IOException, ParserConfigurationException, SAXException, URISyntaxException, UnknownFeedTypeException {
+
+        HttpUtils httpu = new HttpUtils(url.toString());
+
+        if (this.proxyPort != -1 && this.proxyHost != null) {
+            httpu.setProxyHost(proxyHost);
+            httpu.setProxyPort(proxyPort);
+        }
+
+        Document document = httpu.openXMLDocument();
         String feedType = FeedUtils.getFeedType(document);
 
         ParserInterface parser;
@@ -38,5 +58,21 @@ public final class FeedParser {
         }
 
         return parser.parse();
+    }
+
+    public String getProxyHost() {
+        return proxyHost;
+    }
+
+    public void setProxyHost(String proxyHost) {
+        this.proxyHost = proxyHost;
+    }
+
+    public int getProxyPort() {
+        return proxyPort;
+    }
+
+    public void setProxyPort(int proxyPort) {
+        this.proxyPort = proxyPort;
     }
 }
