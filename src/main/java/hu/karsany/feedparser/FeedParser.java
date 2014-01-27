@@ -49,7 +49,7 @@ public final class FeedParser {
 
         ParserInterface parser;
 
-        if (feedType.equals(FeedUtils.RSS20)) {
+        if (feedType.equals(FeedUtils.RSS20) || feedType.equals(FeedUtils.RSS_UNKNOWN)) {
             parser = new RSS20Parser(document);
         } else if (feedType.equals(FeedUtils.ATOM)) {
             parser = new AtomParser(document);

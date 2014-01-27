@@ -26,6 +26,12 @@ public class FeedTypeTest {
     }
 
     @Test
+    public void testRSS_UNKNOWN() throws IOException, SAXException, ParserConfigurationException, URISyntaxException {
+        String feedType = FeedUtils.getFeedType(new HttpUtils("http://www.portfolio.hu/rss/cikkek/all.xml").openXMLDocument());
+        Assert.assertEquals("RSS-UNKNOWN", feedType);
+    }
+
+    @Test
     public void testAtom() throws IOException, SAXException, ParserConfigurationException {
         String feedType = FeedUtils.getFeedType(new HttpUtils("http://upside.blog.hu/atom").openXMLDocument());
         Assert.assertEquals("ATOM", feedType);

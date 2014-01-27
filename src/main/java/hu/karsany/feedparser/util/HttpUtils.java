@@ -62,7 +62,7 @@ public final class HttpUtils {
         HttpMethod method = new GetMethod(url);
         HostConfiguration config = client.getHostConfiguration();
         if (proxyHost != null && proxyPort != -1) {
-            config.setProxy("127.0.0.1", 3128); // @TODO
+            config.setProxy(proxyHost, proxyPort);
         }
         client.executeMethod(method);
         InputStream responseBodyAsStream = method.getResponseBodyAsStream();
